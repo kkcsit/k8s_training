@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webservice01
+  labels:
+    name: webservice01
+spec:
+  containers:
+  - name: webby
+    image: gcr.io/artful-tractor-220916/webby:01
+    ports:
+            containerPort: 9876
+    livenessProbe:
+      initialDelaySeconds: 2
+      periodSeconds: 5
+      httpGet:
+        path: /health
+        port: 9876
+    readinessProbe:
+      httpGet:
+        path: /health
+        port: 9876
+      periodSeconds: 2
+      failureThreshold: 3
+      successThreshold: 1
