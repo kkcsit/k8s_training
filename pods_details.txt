@@ -1,0 +1,53 @@
+Name:           webby-58f6d78965-4kzbm
+Namespace:      default
+Priority:       0
+Node:           k8s-659-node-01/10.1.57.176
+Start Time:     Tue, 29 Oct 2019 11:19:09 -0400
+Labels:         pod-template-hash=58f6d78965
+                run=webby
+Annotations:    <none>
+Status:         Pending
+IP:             192.168.198.1
+Controlled By:  ReplicaSet/webby-58f6d78965
+Containers:
+  webby:
+    Container ID:   
+    Image:          gcr.io/artful-tractor-220916/webby:01
+    Image ID:       
+    Port:           8888/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       ImagePullBackOff
+    Ready:          False
+    Restart Count:  0
+    Requests:
+      cpu:        100m
+      memory:     256Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-ggn4z (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  default-token-ggn4z:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-ggn4z
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type     Reason     Age                   From                      Message
+  ----     ------     ----                  ----                      -------
+  Normal   Scheduled  9m7s                  default-scheduler         Successfully assigned default/webby-58f6d78965-4kzbm to k8s-659-node-01
+  Warning  Failed     8m24s (x3 over 9m5s)  kubelet, k8s-659-node-01  Failed to pull image "gcr.io/artful-tractor-220916/webby:01": rpc error: code = Unknown desc = failed to resolve image "gcr.io/artful-tractor-220916/webby:01": no available registry endpoint: unexpected status code https://gcr.io/v2/artful-tractor-220916/webby/manifests/01: 401 Unauthorized
+  Normal   Pulling    7m38s (x4 over 9m7s)  kubelet, k8s-659-node-01  Pulling image "gcr.io/artful-tractor-220916/webby:01"
+  Warning  Failed     7m36s (x4 over 9m5s)  kubelet, k8s-659-node-01  Error: ErrImagePull
+  Warning  Failed     7m36s                 kubelet, k8s-659-node-01  Failed to pull image "gcr.io/artful-tractor-220916/webby:01": rpc error: code = Unknown desc = failed to pull and unpack image "gcr.io/artful-tractor-220916/webby:01": failed to resolve reference "gcr.io/artful-tractor-220916/webby:01": unexpected status code https://gcr.io/v2/artful-tractor-220916/webby/manifests/01: 401 Unauthorized
+  Normal   BackOff    7m25s (x6 over 9m5s)  kubelet, k8s-659-node-01  Back-off pulling image "gcr.io/artful-tractor-220916/webby:01"
+  Warning  Failed     4m5s (x20 over 9m5s)  kubelet, k8s-659-node-01  Error: ImagePullBackOff
